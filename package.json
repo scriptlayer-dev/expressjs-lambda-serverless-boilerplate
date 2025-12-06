@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-lambda-serverless-boilerplate",
+  "name": "expressjs-lambda-serverless-boilerplate",
   "version": "1.0.0",
   "description": "NodeJS Lambda Serverless Boilerplate",
   "main": "handler.js",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jdawkinsdew/nodejs-lambda-serverless-boilerplate.git"
+    "url": "git+https://github.com/scriptlayer-dev/expressjs-lambda-serverless-boilerplate.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jdawkinsdew/nodejs-lambda-serverless-boilerplate/issues"
+    "url": "https://github.com/scriptlayer-dev/expressjs-lambda-serverless-boilerplate/issues"
   },
-  "homepage": "https://github.com/jdawkinsdew/nodejs-lambda-serverless-boilerplate#readme",
+  "homepage": "https://github.com/scriptlayer-dev/expressjs-lambda-serverless-boilerplate#readme",
   "dependencies": {
     "aws-sdk": "^2.1236.0",
     "aws-serverless-express": "^3.4.0",

@@ -41,7 +41,7 @@ This route is used to handle Stripe webhooks. It expects incoming POST requests 
 1. Clone the repository:
 
 ```
-git clone https://github.com/jdawkinsdew/expressjs-lambda-serverless-boilerplate.git
+git clone https://github.com/scriptlayer-dev/expressjs-lambda-serverless-boilerplate.git
 cd expressjs-lambda-serverless-boilerplate
 ```
 
@@ -87,8 +87,8 @@ This will deploy the Lambda functions to the specified stage in your AWS account
 
 ## Issues
 
-If you find any issues or have any suggestions for improvements, please [open an issue](https://github.com/jdawkinsdew/expressjs-lambda-serverless-boilerplate/issues). We welcome contributions from the community!
+If you find any issues or have any suggestions for improvements, please [open an issue](https://github.com/scriptlayer-dev/expressjs-lambda-serverless-boilerplate/issues). We welcome contributions from the community!
 
 ## Authors
 
-- [Gitpiece](https://github.com/jdawkinsdew)
+- [Gitpiece](https://github.com/scriptlayer-dev)
