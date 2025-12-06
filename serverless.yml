@@ -1,0 +1,76 @@
+service: nodejs-lambda-serverless-boilerplate
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+  - serverless-offline-lambda-invoke
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+  esbuild:
+    bundle: true
+    minify: true
+    platform: 'node'
+    sourcesContent: false
+    concurrency: 8
+    sourcemap: 'external'
+  serverless-offline:
+    httpPort: 4000
+    websocketPort: 4001
+    lambdaPort: 4002
+    esbuild: ${self:custom.esbuild}
+  defaultCors:
+    origin: '*'
+    headers:
+      - Content-Type
+      - Authorization
+      - x-auth-token
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'dev'}
+  region: ${env:REGION, 'us-west-2'}
+  apiName: checkout-${self:provider.stage}
+
+  environment:
+    REGION: ${self:provider.region}
+    API_STAGE: ${self:provider.stage}
+    LAMBDA_PORT: ${self:custom.serverless-offline.lambdaPort}
+    LAMBDA_FUNCTION_PREFIX: ${self:service}-${self:provider.stage}
+
+functions:
+  healthz:
+    handler: src/functions/healthz.handler
+    events:
+      - http:
+          path: /healthz
+          method: get
+          cors: true
+  sample:
+    handler: src/functions/sample.handler
+    timeout: 30
+    events:
+      - http:
+          path: /sample
+          method: ANY
+          cors: ${self:custom.defaultCors}
+      - http:
+          path: '/sample/{proxy+}'
+          method: ANY
+          cors: ${self:custom.defaultCors}
+  webhook:
+    handler: src/functions/webhook.handler
+    events:
+      - http:
+          path: /webhook
+          method: post
+          cors: true
+  lambda:
+    handler: src/functions/lambda.handler
+    timeout: 300
+
