@@ -91,4 +91,4 @@ If you find any issues or have any suggestions for improvements, please [open an
 
 ## Authors
 
-- [Gitpiece](https://github.com/scriptlayer-dev)
+- [Scriptlayer](https://github.com/scriptlayer-dev)
